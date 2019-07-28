@@ -19,7 +19,7 @@ Randomizes datapacks. Currently randomizes loot tables, and structures.
 
 positional arguments:
   output                Filename for the randomized datapack.
-  description
+  description           Name to show in the menu for randomized datapack.
 
 optional arguments:
   -h, --help            show this help message and exit

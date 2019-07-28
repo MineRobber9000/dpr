@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description="Randomizes datapacks. Currently ra
 parser.add_argument("-s","--seed",help="Seed for randomizer.")
 parser.add_argument("-l","--log",help="Outputs a log of what file maps to what.")
 parser.add_argument("output",nargs="?",default="random",help="Filename for the randomized datapack.")
-parser.add_argument("description",nargs="?",default="MineRobber's Data Pack Randomizer")
+parser.add_argument("description",nargs="?",default="MineRobber's Data Pack Randomizer",help="Name to show in the menu for randomized datapack.")
 args = parser.parse_args()
 
 mapping = librandomize.randomize_datapack(args.seed)
