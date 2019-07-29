@@ -1,5 +1,5 @@
 import librandomize
-import argparse, os.path
+import argparse, os.path, hashcode
 
 targets = [x.replace("_"," ") for x in librandomize.RANDOMIZE]
 randomizes = (", ".join(targets[:-1])+", and "+targets[-1]).replace("recipes","crafting/furnace recipes")
@@ -11,10 +11,18 @@ parser.add_argument("output",nargs="?",default="random",help="Filename for the r
 parser.add_argument("description",nargs="?",default="MineRobber's Data Pack Randomizer",help="Name to show in the menu for randomized datapack.")
 args = parser.parse_args()
 
-mapping = librandomize.randomize_datapack(args.seed)
+if args.seed is not None:
+	if args.seed.isdigit():
+		seed=int(args.seed)
+	else:
+		seed=hashcode.hashCode(args.seed)
+else:
+	seed = None
+
+mapping = librandomize.randomize_datapack(seed)
 
 if args.seed is not None:
-	desc = args.description+", seed {}".format(args.seed)
+	desc = args.description+", seed {}".format(seed)
 else:
 	desc = args.description
 
